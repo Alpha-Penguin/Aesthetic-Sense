@@ -13,6 +13,8 @@ IMAGE_MEAN= AVA_ROOT + 'mean_AADB_regression_warp256.binaryproto'
 DEPLOY = AVA_ROOT + 'initModel.prototxt'
 MODEL_FILE = AVA_ROOT + 'initModel.caffemodel'
 IMAGE_FILE = AVA_ROOT + "*jpg"
+IMAGE_FILE_JPEG = AVA_ROOT + "*jpeg"
+
 
 caffe.set_mode_cpu()
 
@@ -62,6 +64,8 @@ Making predicitions
 '''
 #Reading image paths
 test_img_paths = [img_path for img_path in glob.glob(IMAGE_FILE)]
+test_img_paths += [img_path for img_path in glob.glob(IMAGE_FILE_JPEG)]
+print(test_img_paths)
 
 #Making predictions
 best_image = ''
@@ -97,4 +101,4 @@ def predict_multiple_images(test_img_paths, best_score):
             best_image = img_path
     print("Best image, based only on fc11_score = ", best_image)
 
-predict_multiple_images(test_img_paths, best_score)
+#predict_multiple_images(test_img_paths, best_score)
