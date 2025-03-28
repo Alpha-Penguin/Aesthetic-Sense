@@ -15,7 +15,6 @@ Testing
 - Add metadata editing (For rating scores and stars to be permanent in images instead of scores being wiped once app is closed/restarted)
 
 ### TODO Medium Prio
-- Folder Tree Display
 - Find model for Image Quality Assessment(IQA) so final image score can be weighted with tech score(to account for artifacts and noise) and aesthetic score
 
 ### TODO Low Prio
