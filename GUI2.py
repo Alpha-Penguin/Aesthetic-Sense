@@ -145,10 +145,14 @@ class MainWindow(QMainWindow):
         self.menuFile = self.menubar.addMenu("File")
 
         self.Load_Folder = QAction("Load Folder", self)
-        self.Load_Folder.triggered.connect(self.load_images)
+        self.Load_Folder.triggered.connect(self.load_folder)
         self.menuFile.addAction(self.Load_Folder)
 
-    def load_images(self):
+        self.Load_Files = QAction("Load Files", self)
+        self.Load_Files.triggered.connect(self.load_files)
+        self.menuFile.addAction(self.Load_Files)
+
+    def load_folder(self):
         """Open a dialog to select a folder and show files inside while browsing."""
         folder = QFileDialog.getExistingDirectory(self, "Select Image Folder")
 
@@ -168,6 +172,23 @@ class MainWindow(QMainWindow):
             self.filter_btn.setVisible(True)  
             self.filter_value.setVisible(True)  
             self.display_images()
+
+    def load_files(self):
+        """Open a dialog to select a folder and show files inside while browsing."""
+        files, files_types = QFileDialog.getOpenFileNames(None, "Select Files", "", "Images (*.jpg *.jpeg)")
+        print(files)
+        self.image_paths = files
+
+        if not self.image_paths:
+            QMessageBox.warning(self, "No Images Found", "No images found in the selected folder!", QMessageBox.Ok)
+            return
+            
+        self.all_image_paths = self.image_paths.copy()
+        self.analyse_btn.setVisible(True) 
+        self.analyse_selected_btn.setVisible(True)
+        self.filter_btn.setVisible(True)  
+        self.filter_value.setVisible(True)  
+        self.display_images()
 
 
     def display_images(self):
@@ -461,6 +482,7 @@ class MainWindow(QMainWindow):
         vbox_layout = vbox.layout()  # Get the QVBoxLayout from the QWidget
         stars_label = vbox_layout.itemAt(1).widget()  # The second widget, which is the stars label
         line = os.path.basename(img_path)
+        line = "\u200b".join(line)
         line += "\n"
         line += self.star_numbers(rating)
         # Update star info
