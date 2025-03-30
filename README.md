@@ -14,7 +14,3 @@ Testing
 
 ### TODO Medium Prio
 - Find model for Image Quality Assessment(IQA) so final image score can be weighted with tech score(to account for artifacts and noise) and aesthetic score
-
-### TODO Low Prio
-- Decide between gallery view and full view being on same window or different windows
-- Same with metadata(aesthetic scores) info view being on same window or different windows
