@@ -3,6 +3,7 @@ Final Year Project
 
 ### Pre trained Model
 This project uses a pre-trained model found at: https://github.com/aimerykong/deepImageAestheticsAnalysis/tree/master
+
 Final file (initModel.caffemodel) related to this model can be downloaded from: 
 
 ### Features
@@ -14,6 +15,7 @@ Final file (initModel.caffemodel) related to this model can be downloaded from:
 
 ### Installation
 App can be run using the exe file found at:
+
 Or by running source code that requires setup
 
 ### Setup without environment.yml
