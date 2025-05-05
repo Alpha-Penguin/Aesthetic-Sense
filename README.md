@@ -13,7 +13,7 @@ Final file (initModel.caffemodel) related to this model can be downloaded from:
 - View individual image scores/rating and feedback
 
 ### Installation
-App can be run using the exe file found at: 
+App can be run using the exe file found at:
 Or by running source code that requires setup
 
 ### Setup without environment.yml
